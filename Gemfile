@@ -33,7 +33,7 @@ group :development do
 end
 
 # Rails Admin gem and dependencies
-gem 'rails_admin', '~> 1.0'
+gem 'rails_admin', '~> 1.0', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'rails_admin-i18n'
 
 #Slim
