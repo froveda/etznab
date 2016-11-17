@@ -34,6 +34,3 @@ tmp
 # RVM Files
 .ruby-gemset
 .ruby-version
-
-# dot files
-.env

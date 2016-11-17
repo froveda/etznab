@@ -38,4 +38,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  # Show empty fields
+  config.compact_show_view = false
 end

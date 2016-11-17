@@ -42,7 +42,3 @@ gem 'slim-rails'
 
 # New Relic
 gem 'newrelic_rpm'
-
-group :development, :test do
-  gem 'dotenv-rails'
-end
