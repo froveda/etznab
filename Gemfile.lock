@@ -215,7 +215,7 @@ DEPENDENCIES
   newrelic_rpm
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
-  rails_admin (>= 1.0.0.rc)
+  rails_admin (~> 1.0)
   rails_admin-i18n
   remotipart!
   sass-rails (~> 5.0)
