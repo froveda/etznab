@@ -37,5 +37,8 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'rails_admin-i18n'
 
-#SLIM
+#Slim
 gem 'slim-rails'
+
+# New Relic
+gem 'newrelic_rpm'
