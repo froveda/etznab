@@ -29,9 +29,9 @@ module Etznab
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :es
 
-    # Prevent initializing the application before assets are precompiled (required for heroku)
-    config.assets.initialize_on_precompile = false
-    # Add Rails Admin assets (required)
-    config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
+    # # Prevent initializing the application before assets are precompiled (required for heroku)
+    # config.assets.initialize_on_precompile = false
+    # # Add Rails Admin assets (required)
+    # config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
   end
 end
