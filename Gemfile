@@ -34,7 +34,7 @@ end
 
 # Rails Admin gem and dependencies
 gem 'remotipart', github: 'mshibuya/remotipart'
-gem 'rails_admin', '>= 1.0.0.rc'
+gem 'rails_admin', '>= 1.0.0.rc', github: 'sferik/rails_admin'
 gem 'rails_admin-i18n'
 
 #Slim
