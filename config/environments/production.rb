@@ -76,4 +76,6 @@ Rails.application.configure do
   config.assets.initialize_on_precompile = false
   # Add Rails Admin assets (required)
   config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
+
+  config.action_mailer.default_url_options = { host: 'etznab.herokuapp.com' }
 end

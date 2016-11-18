@@ -28,6 +28,8 @@ class Ticket
   end
 
   rails_admin do
+    object_label_method :receipt_number
+
     list do
       field :receipt_number
       field :name

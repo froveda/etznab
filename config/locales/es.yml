@@ -4,6 +4,9 @@ es:
       card_type:
         one: Tipo de Tarjeta
         other: Tipos de Tarjeta
+      admin:
+        one: Administrador
+        other: Administradores
     attributes:
       ticket:
         name: Nombre y Apellido
@@ -16,6 +19,9 @@ es:
         payment_coupon: Cupón
         receipt_number: Nº Factura
         credit_card_last_digits: Últimos dígitos
+      admin:
+        password_confirmation: Confirmación
+
     errors:
       messages:
         record_invalid: "La validación falló: %{errors}"
