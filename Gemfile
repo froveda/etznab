@@ -43,6 +43,7 @@ gem 'devise-bootstrap-views'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'mini_magick'
+gem 'cloudinary'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
