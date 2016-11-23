@@ -13,8 +13,10 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
-# Bootstrap
+# Bootstrap & UI gems
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'animate-rails'
+gem 'bourbon'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -36,6 +38,11 @@ gem 'newrelic_rpm'
 # Devise
 gem 'devise'
 gem 'devise-bootstrap-views'
+
+# Carrierwave
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
+gem 'mini_magick'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

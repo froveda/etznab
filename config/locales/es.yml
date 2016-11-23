@@ -7,6 +7,12 @@ es:
       admin:
         one: Administrador
         other: Administradores
+      ticket:
+        one: Ticket
+        other: Tickets
+      main_header_image:
+        one: Imagen header
+        other: Imagenes header
     attributes:
       ticket:
         name: Nombre y Apellido

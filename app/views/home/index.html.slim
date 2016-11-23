@@ -1,2 +1,14 @@
-h2 Hello World
-p The time is now:  #{Time.now}
+.main-header
+  - MainHeaderImage.each do |image|
+    .image style="background-image: url(#{image.image});"
+.main-header-overlay
+  .container
+    .row
+      .brand-container
+        .brand-name ETZNAB
+        .brand-category Peluquería
+
+.container
+  .row
+    h2 Hello World
+    p The time is now:  #{Time.now}

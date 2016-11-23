@@ -1,0 +1,89 @@
+.main-header
+  position: relative
+  width: 100%
+  margin-top: 0
+  margin-bottom: 0
+
+  .image
+    background-color: rgba(0, 0, 0, 0)
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+    width: 100%
+    z-index: 20
+    height: 400px
+
+    @media (min-width: $screen-sm)
+      height: 500px
+
+    @media (min-width: $screen-md)
+      height: 600px
+
+    @media (min-width: $screen-lg)
+      height: 700px
+
+.main-header-overlay
+  width: 100%
+
+  .brand-container
+    z-index: 1000
+    background: rgba(255, 255, 255, 0.63)
+    margin-top: -107px
+    position: absolute
+    padding: 20px
+
+  .brand-container .brand-name
+    font-family: serif
+    font-size: 50px
+    line-height: 39px
+    color: #000000
+
+  .brand-container .brand-category
+    text-align: right
+    margin-right: 6px
+    font-size: 20px
+
+  @media (max-width: $screen-xs-max)
+    .brand-container
+      width: 100%
+
+    .brand-container .brand-name
+      text-align: right
+
+  @media (min-width: $screen-sm)
+    .brand-container
+      margin-top: -150px
+      padding: 32px
+
+    .brand-container .brand-name
+      font-size: 70px
+      line-height: 58px
+
+    .brand-container .brand-category
+      font-size: 20px
+      margin-right: 9px
+
+  @media (min-width: $screen-md)
+    .brand-container
+      margin-top: -198px
+      padding: 40px
+
+    .brand-container .brand-name
+      font-size: 100px
+      line-height: 86px
+
+    .brand-container .brand-category
+      margin-right: 9px
+      font-size: 23px
+
+.main-header .image
+  height: 400px
+
+  @media (min-width: $screen-sm)
+    height: 500px
+
+  @media (min-width: $screen-md)
+    height: 600px
+
+  @media (min-width: $screen-lg)
+    height: 700px
