@@ -11,7 +11,31 @@
           span.float-left NAB
         .brand-category Peluquería
 
-.container
-  .row
-    h2 Hello World
-    p The time is now:  #{Time.now}
+section#intro
+  .container
+    .row
+      .col-xs-12.wow.fadeInUp.text-center.section-intro
+        h2 INTRO A LA PAGINA
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
+
+        .intro-content
+          .text ALGUN CONTENIDO ACA
+
+section#services
+  .container
+    .row
+      .col-xs-12.wow.fadeInUp.text-center.section-intro
+        h2 Nuestros Servicios
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
+
+    .row
+      .services.owl
+        - Service.each_with_index do |service, index|
+          .service
+            .title.text-center
+              h4= service.name
+              .separator
+
+            .image alt=service.name style="background-image: url(#{service.image.url})"
+
+            .description.text-center= simple_format(service.description)

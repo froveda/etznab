@@ -1,3 +1,26 @@
+body
+  font-family: Arial, Helvetica, sans-serif
+  font-size: 15px
+  line-height: 24px
+  color: #333
+  background-color: #fff
+  font-weight: 300
+
+section
+  padding: 80px 0
+
+section:nth-child(odd)
+  background: #ffffff
+
+section:nth-child(even)
+  background: #f7f8fa
+
+.section-intro
+  margin-bottom: 40px
+
+  p
+    margin: 0
+
 .main-header
   position: relative
   width: 100%
@@ -5,10 +28,8 @@
   margin-bottom: 0
 
   .image
+    @include cover-centered-background
     background-color: rgba(0, 0, 0, 0)
-    background-repeat: no-repeat
-    background-size: cover
-    background-position: center center
     width: 100%
     z-index: 20
     height: 400px
@@ -95,24 +116,56 @@
   @media (min-width: $screen-lg)
     height: 700px
 
-.float-left
-  float: left !important
-
-.glow
-  -webkit-text-fill-color: transparent
-  background: -webkit-linear-gradient(transparent, transparent), image-url("golden-glitter.gif") repeat
-  background: -o-linear-gradient(transparent, transparent)
-  -webkit-background-clip: text
-  text-shadow: 0 0 0.3em #ccac00
-
-
 .logo-z
   margin-left: 5px
   margin-right: 5px
-  font-size: 65px
 
-  @media (min-width: $screen-sm)
-    font-size: 90px
+#intro
+  .intro-content
+    border: 1px #b9b9b9 dotted
+    margin-top: 40px
+    height: 400px
+    font-family: "Yanone Kaffeesatz", sans-serif
+  
+  .text
+    font-size: 40px
+    color: #b9b9b9
+    margin-top: 185px
 
-  @media (min-width: $screen-md)
-    font-size: 130px
+#services
+  .service
+    background-color: #ffffff
+    box-shadow: 0px 3px 0 #f0f1f3
+    padding: 20px
+    position: relative
+    display: block
+
+    .title
+      margin-bottom: 30px
+      display: block
+      position: relative
+      border-bottom: 2px solid #f7f8fa
+
+      h4
+        font-size: 28px
+        padding-bottom: 0
+        
+      .separator
+        background-color: #242424
+        display: block
+        height: 2px
+        margin: 10px auto -2px auto
+        position: relative
+        width: 40px
+
+    .image
+      @include cover-centered-background
+      width: 100%
+      height: 300px
+
+    .description
+      font-family: "Yanone Kaffeesatz", sans-serif
+      color: #777777
+      line-height: 20px
+      margin-top: 30px
+      font-size: 17px

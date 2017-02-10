@@ -13,6 +13,9 @@ es:
       main_header_image:
         one: Imagen header
         other: Imagenes header
+      service_category:
+        one: Servicio
+        other: Servicios
     attributes:
       ticket:
         name: Nombre y Apellido

@@ -1,0 +1,41 @@
+.text-center
+  @include text-centered
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+  font-family: 'Yanone Kaffeesatz', sans-serif
+  font-weight: 200
+  line-height: 1.1
+  color: #000
+
+h2, .h2
+  font-size: 54px
+  line-height: 54px
+  text-transform: uppercase
+
+.float-left
+  float: left !important
+
+.glow
+  -webkit-text-fill-color: transparent
+  background: -webkit-linear-gradient(transparent, transparent), image-url("golden-glitter.gif") repeat
+  background: -o-linear-gradient(transparent, transparent)
+  -webkit-background-clip: text
+  text-shadow: 0 0 0.3em #ccac00
+
+.displayhide
+  display: none
+
+  @media (max-width: $screen-sm-max)
+    display: block
+
+.displayvisible
+  display: block
+
+  @media (max-width: $screen-sm-max)
+    display: none
+
+.subtitle h2
+  font-size: 36px
+
+  @media (min-width: $screen-xs)
+    font-size: 45px

@@ -1,38 +1,45 @@
-class MainHeaderImage
+class Service
   include Mongoid::Document
   include Mongoid::Timestamps
 
   default_scope { order(position: :asc) }
 
+  field :name, type: String
   field :position, type: Integer
+  field :description, type: String
   mount_uploader :image, ImageUploader
 
-  validates_presence_of :image, :position
+  validates_presence_of :name, :position
   validates_numericality_of :position, greater_than: 0, only_integer: true
 
   rails_admin do
     object_label_method :image
 
     list do
-      field :image
+      field :name
+      field :description
       field :position
       sort_by :position
       items_per_page 20
     end
 
     show do
-      field :image
+      field :name
+      field :description
       field :position
     end
 
     export do
-      field :image
+      field :name
+      field :description
       field :position
     end
 
     edit do
-      field :image, :carrierwave
+      field :name
+      field :description
       field :position
+      field :image, :carrierwave
     end
   end
 end
