@@ -18,6 +18,8 @@ $(document).ready(function(){
     responsiveClass:true,
     nav: false,
     dots: true,
+    autoplay: true,
+    loop: true,
     responsive:{
       0:{
         items:1
