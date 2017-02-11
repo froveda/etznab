@@ -46,7 +46,9 @@ $(document).ready(function(){
     },
     responsiveClass:true,
     nav: false,
-    dots: true
+    dots: true,
+    autoplay: true,
+    loop: true
   });
 });
 
