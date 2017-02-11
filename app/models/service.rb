@@ -4,6 +4,8 @@ class Service
 
   default_scope { order(position: :asc) }
 
+  include ServiceConcern
+
   field :name, type: String
   field :position, type: Integer
   field :description, type: String
@@ -11,35 +13,4 @@ class Service
 
   validates_presence_of :name, :position
   validates_numericality_of :position, greater_than: 0, only_integer: true
-
-  rails_admin do
-    object_label_method :image
-
-    list do
-      field :name
-      field :description
-      field :position
-      sort_by :position
-      items_per_page 20
-    end
-
-    show do
-      field :name
-      field :description
-      field :position
-    end
-
-    export do
-      field :name
-      field :description
-      field :position
-    end
-
-    edit do
-      field :name
-      field :description
-      field :position
-      field :image, :carrierwave
-    end
-  end
 end

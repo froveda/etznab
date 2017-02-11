@@ -5,6 +5,8 @@ class Admin
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  include AdminConcern
+
   ## Database authenticatable
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
@@ -22,27 +24,4 @@ class Admin
   field :last_sign_in_at,    type: Time
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
-
-  rails_admin do
-    object_label_method :email
-
-    list do
-      field :email
-      items_per_page 20
-    end
-
-    show do
-      field :email
-    end
-
-    export do
-      field :email
-    end
-
-    edit do
-      field :email
-      field :password
-      field :password_confirmation
-    end
-  end
 end
