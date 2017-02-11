@@ -41,7 +41,7 @@ namespace :instagram_feed do
           end
         end
 
-        sleep 30
+        sleep 10
         page_info = o['entry_data']['TagPage'][0]['tag']['media']['page_info']
         max_id = page_info['end_cursor']
         has_next_page = page_info['has_next_page']
