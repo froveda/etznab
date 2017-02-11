@@ -10,14 +10,13 @@ $(document).ready(function(){
     dots: false
   });
 
-  $('.services').owlCarousel({
+  $('.promos').owlCarousel({
     animateOut: 'fadeOut',
     animateIn: 'fadeIn',
-    loop: false,
-    margin: 10,
+    margin: 30,
     responsiveClass:true,
     nav: false,
-    dots: true,
+    dots: false,
     autoplay: true,
     loop: true,
     responsive:{

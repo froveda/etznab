@@ -29,13 +29,21 @@ section#services
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
 
     .row
-      .services.owl
-        - Service.each_with_index do |service, index|
-          .service
-            .title.text-center
-              h4= service.name
-              .separator
+      .services
+        - Service.each do |service|
+          .col-xs-12.col-md-4
+            .service
+              .title.text-center
+                h4= service.name
+                .separator
 
-            .image alt=service.name style="background-image: url(#{service.image.url})"
+              .image alt=service.name style="background-image: url(#{service.image.url})"
 
-            .description.text-center= simple_format(service.description)
+              .description.text-center= simple_format(service.description)
+
+#promos
+  .container
+    .row
+      .promos.owl
+        - Promo.each do |promo|
+          = image_tag promo.image.url, alt: promo.name
