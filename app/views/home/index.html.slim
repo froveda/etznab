@@ -44,6 +44,19 @@ section#services
 #promos
   .container
     .row
-      .promos.owl
-        - Promo.each do |promo|
-          = image_tag promo.image.url, alt: promo.name
+      .col-xs-12
+        .promos.owl
+          - Promo.each do |promo|
+            = image_tag promo.image.url, alt: promo.name
+
+section#location
+  .container
+    .row
+      .col-xs-12.wow.fadeInUp.text-center
+        h3
+          | Podés encontrarnos en
+          span  Serrano 1408, Palermo Soho, Capital Federal
+
+    .row
+      .col-xs-12
+        #map
