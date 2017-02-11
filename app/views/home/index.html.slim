@@ -17,9 +17,20 @@ section#intro
       .col-xs-12.wow.fadeInUp.text-center.section-intro
         h2.section-title INTRO A LA PAGINA
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
+        p.hashtag-text
+          | ¡Subi tu foto con hashtag&nbsp;&nbsp;
+          span #etznabpeluqueria&nbsp;&nbsp;
+          | y&nbsp;&nbsp;
+          span #etznabbarberia
+          | !
 
-        .intro-content
-          .text ALGUN CONTENIDO ACA
+    .row
+      .col-xs-12
+        .intro-owl
+          - InstagramImage.show_enabled.in_groups_of(2) do |instagram_image_group|
+            .item
+              .image style="background-image: url(#{instagram_image_group.first.thumbnail_src_image})"
+              .image style="background-image: url(#{instagram_image_group.last.thumbnail_src_image rescue ''})"
 
 section#services
   .container

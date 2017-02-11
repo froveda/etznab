@@ -14,4 +14,6 @@ class InstagramImage
   field :thumbnail_src_image, type: String
   field :post_date, type: DateTime
   field :show, type: Boolean, default: true
+
+  scope :show_enabled, -> { where(show: true) }
 end
