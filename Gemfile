@@ -15,7 +15,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # Bootstrap & UI gems
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'animate-rails'
 gem 'bourbon'
 
 # Use jquery as the JavaScript library

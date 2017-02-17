@@ -50,6 +50,8 @@ $(document).ready(function(){
     autoplay: true,
     loop: true
   });
+
+  new WOW().init();
 });
 
 function initMap() {

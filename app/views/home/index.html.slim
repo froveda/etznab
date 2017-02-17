@@ -5,16 +5,17 @@
   .container
     .row
       .brand-container
-        .brand-name
-          span.float-left ET
-          span.float-left.glow.logo-z Z
-          span.float-left NAB
-        .brand-category Peluquería
+        .span.wow.animated.flip
+          .brand-name
+            span.float-left ET
+            span.float-left.glow.logo-z.wow.animated.flip Z
+            span.float-left NAB
+          .brand-category Peluquería & Barbería
 
 section#intro
   .container
     .row
-      .col-xs-12.wow.fadeInUp.text-center.section-intro
+      .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
         h2.section-title INTRO A LA PAGINA
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
         p.hashtag-text
@@ -26,7 +27,7 @@ section#intro
 
     .row
       .col-xs-12
-        .intro-owl
+        .intro-owl.wow.animated.fadeInUp
           - InstagramImage.show_enabled.in_groups_of(2) do |instagram_image_group|
             .item
               .image style="background-image: url(#{instagram_image_group.first.thumbnail_src_image})"
@@ -35,15 +36,17 @@ section#intro
 section#services
   .container
     .row
-      .col-xs-12.wow.fadeInUp.text-center.section-intro
+      .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
         h2.section-title Nuestros Servicios
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
 
     .row
       .services
+        - wow_delay = 0.2
         - Service.each do |service|
+          - wow_delay += 0.2
           .col-xs-12.col-md-4
-            .service
+            .service.wow.flipInX data-wow-delay="#{wow_delay}s"
               .title.text-center
                 h4= service.name
                 .separator
@@ -57,17 +60,19 @@ section#services
     .row
       .col-xs-12
         .promos.owl
+          - wow_delay = 0.2
           - Promo.each do |promo|
-            = image_tag promo.image.url, alt: promo.name
+            - wow_delay += 0.2
+            = image_tag promo.image.url, alt: promo.name, class: 'wow flipInX', "data-wow-delay": "#{wow_delay}s"
 
 section#location
   .container
     .row
-      .col-xs-12.wow.fadeInUp.text-center
+      .col-xs-12.wow.fadeInUp.text-center.wow.animated.fadeInUp
         h3
           | Podés encontrarnos en
           span  Serrano 1408, Palermo Soho, Capital Federal
 
     .row
       .col-xs-12
-        #map
+        #map.wow.animated.flash
