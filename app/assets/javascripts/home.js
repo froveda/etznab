@@ -45,8 +45,8 @@ $(document).ready(function(){
       }
     },
     responsiveClass:true,
-    nav: false,
-    dots: true,
+    nav: true,
+    dots: false,
     autoplay: true,
     loop: true
   });
