@@ -9,3 +9,9 @@
 @mixin parallax-background
   @include cover-centered-background
   background-attachment: fixed
+
+@mixin transition($transition)
+  -webkit-transition: $transition
+  -moz-transition: $transition
+  -o-transition: $transition
+  transition: $transition
