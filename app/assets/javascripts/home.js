@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  window.viewportUnitsBuggyfill.init();
+
   $('.main-header').owlCarousel({
     items: 1,
     loop: true,
