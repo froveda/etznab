@@ -9,7 +9,7 @@ module InstagramImageConcern
             bindings[:view].tag(:img, { src: bindings[:object].thumbnail_src_image, style: 'width: 150px' })
           end
         end
-        field :show
+        field :show, :toggle
         field :post_date
         sort_by :post_date
         items_per_page 20

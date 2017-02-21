@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # Rails Admin gem and dependencies
 gem 'rails_admin', '~> 1.0', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'rails_admin-i18n'
+gem 'rails_admin_toggleable' # Make any boolean field easily toggleable on\off from index view in rails admin
 
 #Slim
 gem 'slim-rails'
