@@ -2,8 +2,8 @@ body
   font-family: Arial, Helvetica, sans-serif
   font-size: 15px
   line-height: 24px
-  color: #333
-  background-color: #fff
+  color: #fff
+  background-color: #000
   font-weight: 300
 
 .main-header
@@ -28,7 +28,6 @@ body
   .brand-container
     z-index: 1000
     background: rgba(255, 255, 255, 0.63)
-    margin-top: -101px
     position: absolute
     padding: 20px
 
@@ -59,7 +58,7 @@ body
 
   @media (min-width: $screen-sm)
     .brand-container
-      margin-top: -146px
+      margin-top: -156px
       padding: 32px
 
     .brand-container .brand-name
@@ -72,7 +71,7 @@ body
 
   @media (min-width: $screen-md)
     .brand-container
-      margin-top: -190px
+      margin-top: -203px
       padding: 40px
 
     .brand-container .brand-name
@@ -101,11 +100,8 @@ body
 section
   padding: 80px 0
 
-section:nth-child(odd)
-  background: #ffffff
-
-section:nth-child(even)
-  background: #f7f8fa
+section
+  background: #000
 
 .section-intro
   margin-bottom: 20px
@@ -206,8 +202,7 @@ section:nth-child(even)
 
 #services
   .service
-    background-color: #ffffff
-    box-shadow: 0px 3px 0 #f0f1f3
+    @extend .opacity-white-background
     padding: 20px
     position: relative
     display: block
@@ -217,7 +212,6 @@ section:nth-child(even)
       margin-bottom: 30px
       display: block
       position: relative
-      border-bottom: 2px solid #f7f8fa
 
       h4
         font-size: 28px
@@ -238,7 +232,6 @@ section:nth-child(even)
 
     .description
       font-family: "Yanone Kaffeesatz", sans-serif
-      color: #777777
       line-height: 20px
       margin-top: 30px
       font-size: 17px
