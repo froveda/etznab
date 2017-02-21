@@ -42,9 +42,8 @@ section#services
 
     .row
       .services
-        - wow_delay = 0.2
+        - wow_delay = 0
         - Service.each do |service|
-          - wow_delay += 0.2
           .col-xs-12.col-md-4
             .service.wow.flipInX data-wow-delay="#{wow_delay}s"
               .title.text-center
@@ -54,16 +53,17 @@ section#services
               .image alt=service.name style="background-image: url(#{service.image.url})"
 
               .description.text-center.black-text= simple_format(service.description)
+          - wow_delay += 0.2
 
 #promos
   .container
     .row
       .col-xs-12
         .promos.owl
-          - wow_delay = 0.2
+          - wow_delay = 0
           - Promo.each do |promo|
-            - wow_delay += 0.2
             = image_tag promo.image.url, alt: promo.name, class: 'wow flipInX', "data-wow-delay": "#{wow_delay}s"
+            - wow_delay += 0.2
 
 section#location
   .container
@@ -76,3 +76,27 @@ section#location
     .row
       .col-xs-12
         #map
+
+section#contact
+  .container
+    .row
+      .col-xs-12.text-center.wow.animated.fadeInUp
+        h2.section-title Contactanos
+      .col-xs-12.text-center.wow.animated.fadeInUp
+        p Completá el siguiente formulario y nos comunicaremos con vos, o comunicate con nosotros por teléfono o email:
+        p
+          i.fa.fa-volume-control-phone &nbsp;&nbsp;
+          | 011 1234-1234
+        p
+          i.fa.fa-envelope &nbsp;&nbsp;
+          = link_to 'etznabpeluqueria@gmail.com', 'mailto: etznabpeluqueria@gmail.com'
+
+      .col-xs-12.col-sm-8.col-sm-offset-2.wow.animated.fadeInUp
+        = form_tag :contact_us do
+          .form-group
+            = text_field_tag :name, '', class: 'form-control', placeholder: 'e-mail'
+          .form-group
+            = text_field_tag :phone, '', class: 'form-control', placeholder: 'teléfono'
+          .form-group
+            = text_area_tag :comment, '', class: 'form-control', placeholder: 'mensaje'
+          button type="submit" class="btn btn-primary" ENVIAR

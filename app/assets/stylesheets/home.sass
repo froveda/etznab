@@ -236,10 +236,46 @@ section
       margin-top: 30px
       font-size: 17px
 
-#promos
+#promos, #contact
   @include parallax-background
-  background-image: url(asset_path("hairdress_background.jpg"))
   padding: 40px 0
+
+#promos
+  background-image: url(asset_path("hairdress_background.jpg"))
+
+#contact
+  background-image: url(asset_path("contact.jpg"))
+
+  form
+    margin-top: 40px
+
+  .form-control
+    background: #000
+    border-radius: 0
+    border: 2px #fff solid
+    color: #fff
+
+  input[type="text"]
+    height: 50px
+
+  textarea
+    height: 125px
+
+  .btn
+    background: none
+    color: #fff
+    border-radius: 0
+    border: 2px #fff solid
+    padding: 13px 43px
+    float: right
+    @include transition(background-color 0.3s linear)
+
+    &:hover
+      @extend .opacity-white-background
+
+  a, a:hover
+    color: #fff
+    text-decoration: none
 
 
 #location
