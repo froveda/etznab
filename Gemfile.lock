@@ -140,6 +140,10 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kaminari-core (1.0.1)
+    kaminari-mongoid (1.0.1)
+      kaminari-core (~> 1.0)
+      mongoid
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.8)
@@ -322,6 +326,7 @@ DEPENDENCIES
   faker (~> 1.4.3)
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari-mongoid
   launchy (~> 2.4.2)
   listen (~> 3.0.5)
   mechanize
@@ -344,4 +349,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.12.5
+   1.14.6

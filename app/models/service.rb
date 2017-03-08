@@ -11,6 +11,7 @@ class Service
   field :description, type: String
   mount_uploader :image, ImageUploader
 
-  validates_presence_of :name, :position
-  validates_numericality_of :position, greater_than: 0, only_integer: true
+  validates :name, presence: true
+  validates :position, presence: true, numericality: { greater_than: 0, only_integer: true }
+  validates :image, presence: true
 end
