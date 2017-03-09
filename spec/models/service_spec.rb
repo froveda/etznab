@@ -5,33 +5,28 @@ describe Service do
     expect(FactoryGirl.build(:service)).to be_valid
   end
 
-  it "is invalid without a name" do
-    service = FactoryGirl.build(:service, name: nil)
-    expect(service).to_not be_valid
-    expect(service.errors[:name]).to include("no puede estar en blanco")
+  describe "without a name" do
+    let(:object) { FactoryGirl.build(:service, name: nil) }
+    it_behaves_like "validating presence", :name
   end
 
-  it "is invalid without a position" do
-    service = FactoryGirl.build(:service, position: nil)
-    expect(service).to_not be_valid
-    expect(service.errors[:position]).to include("no puede estar en blanco")
+  describe "without a position" do
+    let(:object) { FactoryGirl.build(:service, position: nil) }
+    it_behaves_like "validating presence", :position
   end
 
-  it "is invalid with a position lower than 1" do
-    service = FactoryGirl.build(:service, position: 0)
-    expect(service).to_not be_valid
-    expect(service.errors[:position]).to include("debe ser mayor que 0")
+  describe "without a image" do
+    let(:object) { FactoryGirl.build(:service, image: nil) }
+    it_behaves_like "validating presence", :image
   end
 
-  it "is invalid with a not number position" do
-    service = FactoryGirl.build(:service, position: 'a')
-    expect(service).to_not be_valid
-    expect(service.errors[:position]).to include("no es un número")
+  describe "with position lower than 1" do
+    let(:object) { FactoryGirl.build(:service, position: 0) }
+    it_behaves_like "validating integer higher than 0", :position
   end
 
-  it "is invalid without an image" do
-    service = FactoryGirl.build(:service, image: nil)
-    expect(service).to_not be_valid
-    expect(service.errors[:image]).to include("no puede estar en blanco")
+  describe "with a not number position" do
+    let(:object) { FactoryGirl.build(:service, position: 'a') }
+    it_behaves_like "validating that is a number", :position
   end
 end

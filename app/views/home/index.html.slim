@@ -62,7 +62,7 @@ section#services
         .promos.owl
           - wow_delay = 0
           - Promo.each do |promo|
-            = image_tag promo.image.url, alt: promo.name, class: 'wow flipInX', "data-wow-delay": "#{wow_delay}s"
+            = image_tag promo.image.url, alt: promo.name, class: 'wow flipInX', "data-wow-delay" => "#{wow_delay}s"
             - wow_delay += 0.2
 
 section#location
