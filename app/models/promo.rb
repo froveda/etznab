@@ -10,6 +10,6 @@ class Promo
   field :position, type: Integer
   mount_uploader :image, ImageUploader
 
-  validates_presence_of :name, :position
+  validates_presence_of :name, :position, :image
   validates_numericality_of :position, greater_than: 0, only_integer: true
 end
