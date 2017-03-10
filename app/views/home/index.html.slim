@@ -1,5 +1,5 @@
 .main-header
-  - MainHeaderImage.each do |image|
+  - @main_header_images.each do |image|
     .image style="background-image: url(#{image.image});"
 .main-header-overlay
   .container
@@ -28,7 +28,7 @@ section#intro
     .row
       .col-xs-12
         .intro-owl.wow.animated.fadeInUp
-          - InstagramImage.show_enabled.in_groups_of(2) do |instagram_image_group|
+          - @instagram_images.in_groups_of(2) do |instagram_image_group|
             .item
               .image style="background-image: url(#{instagram_image_group.first.thumbnail_src_image})"
               .image style="background-image: url(#{instagram_image_group.last.thumbnail_src_image rescue ''})"
@@ -43,7 +43,7 @@ section#services
     .row
       .services
         - wow_delay = 0
-        - Service.each do |service|
+        - @services.each do |service|
           .col-xs-12.col-md-4
             .service.wow.flipInX data-wow-delay="#{wow_delay}s"
               .title.text-center
@@ -61,7 +61,7 @@ section#services
       .col-xs-12
         .promos.owl
           - wow_delay = 0
-          - Promo.each do |promo|
+          - @promos.each do |promo|
             = image_tag promo.image.url, alt: promo.name, class: 'wow flipInX', "data-wow-delay" => "#{wow_delay}s"
             - wow_delay += 0.2
 
