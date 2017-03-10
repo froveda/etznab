@@ -1,4 +1,6 @@
 class Ticket
+  CARD_TYPES = %w(Amex Cabal MasterCard Naranja Visa)
+
   include Mongoid::Document
   include Mongoid::Timestamps
 
@@ -18,6 +20,6 @@ class Ticket
   validates_presence_of :name, :date, :card, :card_type, :amount, :receipt_number
 
   validates :card, inclusion: { in: %w(debit credit)}
-  validates :card_type, inclusion: { in: %w(mastercard visa amex)}
+  validates :card_type, inclusion: { in: CARD_TYPES }
   validates :receipt_number, uniqueness: true, numericality: { greater_than: 0, only_integer: true }
 end

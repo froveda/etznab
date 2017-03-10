@@ -8,7 +8,7 @@ module TicketConcern
     end
 
     def card_type_enum
-      CardType.all.map(&:name)
+      Ticket::CARD_TYPES
     end
 
     rails_admin do

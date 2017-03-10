@@ -3,23 +3,24 @@ module AdminConcern
 
   included do
     rails_admin do
-      object_label_method :name
+      object_label_method :email
 
       list do
-        field :name
+        field :email
         items_per_page 20
       end
 
       show do
-        field :name
+        field :email
       end
 
       export do
-        field :name
+        field :email
       end
 
       edit do
-        field :name
+        field :email
+        field :password
       end
     end
   end
