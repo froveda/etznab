@@ -37,3 +37,13 @@ RSpec.shared_examples "validating that it is included in the list of values" do 
     expect(object.errors[attribute]).to include("no está incluido en la lista")
   end
 end
+
+## Wrong format
+RSpec.shared_examples "validating format" do |attribute|
+  let(:attribute) { attribute }
+
+  it "must be invalid" do
+    expect(object).to_not be_valid
+    expect(object.errors[attribute]).to include("no es válido")
+  end
+end

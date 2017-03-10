@@ -54,6 +54,6 @@ describe Ticket do
     create(:ticket, receipt_number: '500')
     ticket_invalid = build(:ticket, receipt_number: '500')
     expect(ticket_invalid).to_not be_valid
-    expect(ticket_invalid.errors[:receipt_number]).to include("is already taken")
+    expect(ticket_invalid.errors[:receipt_number]).to include("ya está en uso")
   end
 end
