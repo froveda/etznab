@@ -8,13 +8,14 @@ RSpec.shared_examples "validating presence" do |attribute|
   end
 end
 
-## Integer higher than 0
-RSpec.shared_examples "validating integer higher than 0" do |attribute|
+## Number greater than 0
+RSpec.shared_examples "validating number greater than a count" do |attribute, count|
   let(:attribute) { attribute }
+  let(:attribute) { count }
 
   it "must be invalid" do
     expect(object).to_not be_valid
-    expect(object.errors[attribute]).to include(I18n.t('errors.messages.greater_than', count: 0))
+    expect(object.errors[attribute]).to include(I18n.t('errors.messages.greater_than', count: count))
   end
 end
 

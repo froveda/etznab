@@ -32,7 +32,7 @@ describe Ticket do
 
   describe "with receipt_number lower than 1" do
     let(:object) { build(:ticket, receipt_number: 0) }
-    it_behaves_like "validating integer higher than 0", :receipt_number
+    it_behaves_like "validating number greater than a count", :receipt_number, 0
   end
 
   describe "with an invalid card" do

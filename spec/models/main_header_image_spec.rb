@@ -17,7 +17,7 @@ describe MainHeaderImage do
 
   describe "with position lower than 1" do
     let(:object) { build(:main_header_image, position: 0) }
-    it_behaves_like "validating integer higher than 0", :position
+    it_behaves_like "validating number greater than a count", :position, 0
   end
 
   describe "with a not numbered position" do
