@@ -4,7 +4,7 @@ RSpec.shared_examples "validating presence" do |attribute|
 
   it "must be invalid" do
     expect(object).to_not be_valid
-    expect(object.errors[attribute]).to include("no puede estar en blanco")
+    expect(object.errors[attribute]).to include(I18n.t('errors.messages.blank'))
   end
 end
 
@@ -14,7 +14,7 @@ RSpec.shared_examples "validating integer higher than 0" do |attribute|
 
   it "must be invalid" do
     expect(object).to_not be_valid
-    expect(object.errors[attribute]).to include("debe ser mayor que 0")
+    expect(object.errors[attribute]).to include(I18n.t('errors.messages.greater_than', count: 0))
   end
 end
 
@@ -24,7 +24,7 @@ RSpec.shared_examples "validating that is a number" do |attribute|
 
   it "must be invalid" do
     expect(object).to_not be_valid
-    expect(object.errors[attribute]).to include("no es un número")
+    expect(object.errors[attribute]).to include(I18n.t('errors.messages.not_a_number'))
   end
 end
 
@@ -34,7 +34,7 @@ RSpec.shared_examples "validating that it is included in the list of values" do 
 
   it "must be invalid" do
     expect(object).to_not be_valid
-    expect(object.errors[attribute]).to include("no está incluido en la lista")
+    expect(object.errors[attribute]).to include(I18n.t('errors.messages.inclusion'))
   end
 end
 
@@ -44,6 +44,6 @@ RSpec.shared_examples "validating format" do |attribute|
 
   it "must be invalid" do
     expect(object).to_not be_valid
-    expect(object.errors[attribute]).to include("no es válido")
+    expect(object.errors[attribute]).to include(I18n.t('errors.messages.invalid'))
   end
 end
