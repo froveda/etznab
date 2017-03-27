@@ -5,6 +5,13 @@ describe Admin do
     expect(build(:admin)).to be_valid
   end
 
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_presence_of(:password) }
+    it { is_expected.to validate_uniqueness_of(:email) }
+    it { is_expected.to validate_length_of(:password).with_minimum(6) }
+  end
+
   describe "is invalid without an email" do
     let(:object) { build(:admin, email: nil) }
     it_behaves_like "validating presence", :email

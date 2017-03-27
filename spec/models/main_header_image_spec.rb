@@ -5,6 +5,12 @@ describe MainHeaderImage do
     expect(build(:main_header_image)).to be_valid
   end
 
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:position) }
+    it { is_expected.to validate_presence_of(:image) }
+    it { is_expected.to validate_numericality_of(:position).greater_than(0) }
+  end
+
   describe "without a position" do
     let(:object) { build(:main_header_image, position: nil) }
     it_behaves_like "validating presence", :position

@@ -5,6 +5,19 @@ describe Ticket do
     expect(build(:ticket)).to be_valid
   end
 
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:card) }
+    it { is_expected.to validate_presence_of(:card_type) }
+    it { is_expected.to validate_presence_of(:amount) }
+    it { is_expected.to validate_presence_of(:receipt_number) }
+    it { is_expected.to validate_uniqueness_of(:receipt_number) }
+    it { is_expected.to validate_numericality_of(:receipt_number).greater_than(0) }
+    it { is_expected.to validate_inclusion_of(:card).to_allow(%w(debit credit)) }
+    it { is_expected.to validate_inclusion_of(:card_type).to_allow(Ticket::CARD_TYPES) }
+  end
+
+
   describe "without a name" do
     let(:object) { build(:ticket, name: nil) }
     it_behaves_like "validating presence", :name
@@ -35,6 +48,11 @@ describe Ticket do
     it_behaves_like "validating number greater than a count", :receipt_number, 0
   end
 
+  describe "with a not number receipt_number" do
+    let(:object) { build(:ticket, receipt_number: 'a') }
+    it_behaves_like "validating that is a number", :receipt_number
+  end
+
   describe "with an invalid card" do
     let(:object) { build(:ticket, card: 'test') }
     it_behaves_like "validating that it is included in the list of values", :card
@@ -43,11 +61,6 @@ describe Ticket do
   describe "with an invalid card_type" do
     let(:object) { build(:ticket, card_type: 'test') }
     it_behaves_like "validating that it is included in the list of values", :card_type
-  end
-
-  describe "with a not number receipt_number" do
-    let(:object) { build(:ticket, receipt_number: 'a') }
-    it_behaves_like "validating that is a number", :receipt_number
   end
 
   it "it has unique receipt_number" do

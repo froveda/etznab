@@ -19,7 +19,7 @@ class Ticket
 
   validates_presence_of :name, :date, :card, :card_type, :amount, :receipt_number
 
-  validates :card, inclusion: { in: %w(debit credit)}
+  validates :card, inclusion: { in: %w(debit credit) }
   validates :card_type, inclusion: { in: CARD_TYPES }
   validates :receipt_number, uniqueness: true, numericality: { greater_than: 0, only_integer: true }
 end

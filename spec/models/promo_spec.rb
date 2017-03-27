@@ -5,6 +5,13 @@ describe Promo do
     expect(build(:promo)).to be_valid
   end
 
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:position) }
+    it { is_expected.to validate_presence_of(:image) }
+    it { is_expected.to validate_numericality_of(:position).greater_than(0) }
+  end
+
   describe "without a name" do
     let(:object) { build(:promo, name: nil) }
     it_behaves_like "validating presence", :name

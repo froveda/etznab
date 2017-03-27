@@ -5,6 +5,15 @@ describe InstagramImage do
     expect(build(:instagram_image)).to be_valid
   end
 
+  describe "validations" do
+    it { is_expected.to validate_presence_of(:instagram_id) }
+    it { is_expected.to validate_presence_of(:code) }
+    it { is_expected.to validate_presence_of(:thumbnail_src) }
+    it { is_expected.to validate_uniqueness_of(:instagram_id).scoped_to(:code) }
+    it { is_expected.to validate_numericality_of(:instagram_id) }
+    it { is_expected.to validate_format_of(:thumbnail_src).with_format(URI::regexp(%w(http https))) }
+  end
+
   describe "is invalid without an instagram_id" do
     let(:object) { build(:instagram_image, instagram_id: nil) }
     it_behaves_like "validating presence", :instagram_id
