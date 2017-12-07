@@ -47,6 +47,7 @@ gem 'mini_magick'
 gem 'cloudinary'
 
 gem 'mechanize'
+gem 'delayed_job_mongoid'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
