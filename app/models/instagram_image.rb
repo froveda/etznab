@@ -14,6 +14,8 @@ class InstagramImage
   field :thumbnail_src_image, type: String
   field :post_date, type: DateTime
   field :show, type: Boolean, default: true
+  field :video_url, type: String
+  field :is_video, type: Boolean, default: false
 
   index({ instagram_id: 1, code: 1 }, { unique: true })
 
@@ -23,4 +25,8 @@ class InstagramImage
   validates_uniqueness_of :instagram_id, scope: :code
   validates_numericality_of :instagram_id
   validates_format_of :thumbnail_src, with: URI::regexp(%w(http https)), message: "debe ser una URL válida"
+  
+  def video_url_insecure
+    video_url.gsub(/https/, 'http')
+  end
 end

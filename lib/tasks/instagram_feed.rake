@@ -25,6 +25,13 @@ namespace :instagram_feed do
 
         data.each do |instagram_data|
           begin
+            video_url = ''
+            if instagram_data['is_video']
+              video_page = agent.get("https://www.instagram.com/p/#{instagram_data['code']}")
+              videos = video_page.body.match(/content=['"](.*?\.mp4)['"]/i).captures
+              video_url = videos.first
+            end
+
             unless InstagramImage.where(instagram_id: instagram_data['id'], code: instagram_data['code']).count > 0
               puts "------ CARGA #{instagram_data['id']}, #{instagram_data['code']}"
               InstagramImage.create(instagram_id: instagram_data['id'],
@@ -33,7 +40,9 @@ namespace :instagram_feed do
                                     display_src: instagram_data['display_src'],
                                     display_src_image: URI.parse(instagram_data['display_src']),
                                     thumbnail_src_image: URI.parse(instagram_data['thumbnail_src']),
-                                    post_date: DateTime.strptime("#{instagram_data['date']}",'%s'))
+                                    post_date: DateTime.strptime("#{instagram_data['date']}",'%s'),
+                                    video_url: video_url,
+                                    is_video: instagram_data['is_video'])
               puts "------ CARGO #{instagram_data['id']}, #{instagram_data['code']}"
             end
           rescue => e

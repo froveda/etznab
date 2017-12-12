@@ -1,0 +1,8 @@
+- instagram_element = local_assigns[:instagram_element]
+
+- if instagram_element && instagram_element.is_video
+  .image
+    video.video(playsinline poster="#{instagram_element.thumbnail_src_image}" src="#{instagram_element.video_url_insecure}" type="video/mp4")
+    .fa.play
+- else
+  .image style="background-image: url(#{instagram_element.thumbnail_src_image rescue ''})"

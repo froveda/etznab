@@ -52,6 +52,21 @@ $(document).ready(function(){
     navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>']
   });
 
+  $('.video').parent().click(function () {
+    if($(this).children(".video").get(0).paused){
+      $(this).children(".video").get(0).play();
+      $(this).children(".play").addClass('pause');
+    }else{
+      $(this).children(".video").get(0).pause();
+      $(this).children(".pause").removeClass('pause');
+    }
+  });
+
+  $('.video').on('ended',function(){
+    $(this).parent().children(".play").removeClass('pause');
+    $(this).get(0).currentTime = 0;
+  });
+
   new WOW().init();
 });
 

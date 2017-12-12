@@ -30,8 +30,8 @@ section#intro
         .intro-owl.wow.animated.fadeInUp
           - @instagram_images.in_groups_of(2) do |instagram_image_group|
             .item
-              .image style="background-image: url(#{instagram_image_group.first.thumbnail_src_image})"
-              .image style="background-image: url(#{instagram_image_group.last.thumbnail_src_image rescue ''})"
+              = render 'home/instagram_element', instagram_element: instagram_image_group.first
+              = render 'home/instagram_element', instagram_element: instagram_image_group.last
 
 section#services
   .container
