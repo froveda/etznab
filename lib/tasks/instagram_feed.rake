@@ -18,6 +18,7 @@ namespace :instagram_feed do
       agent = Mechanize.new
       begin
         result = agent.get(uri)
+        sleep 10
 
         o = result.body.match(/window\._sharedData *= *(.*?) *\;? *<\/script>/i).captures
         o = JSON.parse(o[0])
@@ -28,6 +29,7 @@ namespace :instagram_feed do
             video_url = ''
             if instagram_data['is_video']
               video_page = agent.get("https://www.instagram.com/p/#{instagram_data['code']}")
+              sleep 5
               videos = video_page.body.match(/content=['"](.*?\.mp4)['"]/i).captures
               video_url = videos.first
             end
