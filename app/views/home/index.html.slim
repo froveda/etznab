@@ -2,7 +2,7 @@
   - @main_header_images.each do |image|
     .image style="background-image: url(#{image.image});"
 .main-header-overlay
-  .container
+  .container style='position: relative;'
     .row
       .brand-container
         .span.wow.animated.flip
@@ -15,9 +15,15 @@
 section#intro
   .container
     .row
+      .col-xs-12.text-center.section-intro.wow.animated.fadeIn
+        = image_tag image_path('logo.jpg'), class: 'logo'
+
       .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
-        h2.section-title INTRO A LA PAGINA
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
+        p.intro-text Etznab representa la galería de espejos, donde podes encontrarte con tu propio reflejo y ver la verdad acerca de vos mismo, ya sea belleza o ilusión.
+        p.intro-text Usá el mundo como un espejo para tu descubrimiento y aprendizaje.
+        p.intro-text Tomate un momento para verte como realmente sos, encontrá tu estilo y refleja en tu apariencia tu esencia.
+        p.intro-text Vení a ETZNAB PELUQUERÍA
+
         p.hashtag-text
           | ¡Subi tu foto con hashtag&nbsp;&nbsp;
           span #etznabpeluqueria&nbsp;&nbsp;
