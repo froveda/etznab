@@ -47,17 +47,16 @@ section#services
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
 
     .row
-      .services
+      .services.grid
+        .grid-sizer.col-xs-12.col-sm-6.col-md-4
         - wow_delay = 0
         - @services.each do |service|
-          .col-xs-12.col-md-4
+          .col-xs-12.col-sm-6.col-md-4.grid-item
             .service.wow.flipInX data-wow-delay="#{wow_delay}s"
               .title.text-center
                 h4.black-text= service.name
                 .separator
-
               .image alt=service.name style="background-image: url(#{service.image.url})"
-
               .description.text-center.black-text= simple_format(service.description)
           - wow_delay += 0.2
 
