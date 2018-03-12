@@ -24,27 +24,11 @@ section#intro
         p.intro-text Tomate un momento para verte como realmente sos, encontrá tu estilo y refleja en tu apariencia tu esencia.
         p.intro-text Vení a ETZNAB PELUQUERÍA
 
-        p.hashtag-text
-          | ¡Subi tu foto con hashtag&nbsp;&nbsp;
-          span #etznabpeluqueria&nbsp;&nbsp;
-          | y&nbsp;&nbsp;
-          span #etznabbarberia
-          | !
-
-    .row
-      .col-xs-12
-        .intro-owl.wow.animated.fadeInUp
-          - @instagram_images.in_groups_of(2) do |instagram_image_group|
-            .item
-              = render 'home/instagram_element', instagram_element: instagram_image_group.first
-              = render 'home/instagram_element', instagram_element: instagram_image_group.last
-
 section#services
   .container
     .row
       .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
         h2.section-title Nuestros Servicios
-        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est eget congue. Nam auctor nisi est, nec tempus lacus.
 
     .row
       .services.grid
@@ -60,7 +44,11 @@ section#services
               .description.text-center.black-text= simple_format(service.description)
           - wow_delay += 0.2
 
-#promos
+section#socials
+  .row
+    .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
+      h2.section-title Promos!
+
   .container
     .row
       .col-xs-12
@@ -69,6 +57,47 @@ section#services
           - @promos.each do |promo|
             = image_tag promo.image.url, alt: promo.name, class: 'wow flipInX', "data-wow-delay" => "#{wow_delay}s"
             - wow_delay += 0.2
+    .row
+      .col-xs-12
+        p.hashtag-text.text-center style='margin-top: 50px;margin-bottom: 30px;font-size: 20px;'
+          | ¡Subi tu foto con hashtag&nbsp;&nbsp;
+          span #etznabpeluqueria&nbsp;&nbsp;
+          | y&nbsp;&nbsp;
+          span #etznabbarberia
+          | !
+    .row
+      .col-xs-12
+        .intro-owl.wow.animated.fadeInUp
+          - @instagram_images.in_groups_of(2) do |instagram_image_group|
+            .item
+              = render 'home/instagram_element', instagram_element: instagram_image_group.first
+              = render 'home/instagram_element', instagram_element: instagram_image_group.last
+
+#promos
+  .container
+
+
+section#contact
+  .container
+    .row
+      .col-xs-12.text-center.wow.animated.fadeInUp
+        h2.section-title Contactanos
+      .col-xs-12.text-center.wow.animated.fadeInUp
+        p Contactate con nosotros por email o por teléfono:
+        p style='margin-bottom: 10px;'
+          i.fa.fa-volume-control-phone &nbsp;&nbsp;
+          | 011 4832-8883
+        p
+          i.fa.fa-envelope &nbsp;&nbsp;
+          = link_to 'etznabpeluqueria@gmail.com', 'mailto: etznabpeluqueria@gmail.com'
+
+      .col-xs-12.col-sm-8.col-sm-offset-2.text-center.wow.animated.fadeInUp
+        p style='margin-bottom: 20px;' Para sacar turno, contactanos por WhatsApp!
+
+      .col-xs-12.col-sm-8.col-sm-offset-2
+        .whatsapp-buttons-container
+          = link_to 'Fabri', 'https://api.whatsapp.com/send?phone=541169563666', target: '_blank', class: 'whatsapp-button'
+          = link_to 'Sebas', 'https://api.whatsapp.com/send?phone=541139078506', target: '_blank', class: 'whatsapp-button'
 
 section#location
   .container
@@ -81,27 +110,3 @@ section#location
     .row
       .col-xs-12
         #map
-
-section#contact
-  .container
-    .row
-      .col-xs-12.text-center.wow.animated.fadeInUp
-        h2.section-title Contactanos
-      .col-xs-12.text-center.wow.animated.fadeInUp
-        p Completá el siguiente formulario y nos comunicaremos con vos, o comunicate con nosotros por teléfono o email:
-        p
-          i.fa.fa-volume-control-phone &nbsp;&nbsp;
-          | 011 1234-1234
-        p
-          i.fa.fa-envelope &nbsp;&nbsp;
-          = link_to 'etznabpeluqueria@gmail.com', 'mailto: etznabpeluqueria@gmail.com'
-
-      .col-xs-12.col-sm-8.col-sm-offset-2.wow.animated.fadeInUp
-        = form_tag :contact_us do
-          .form-group
-            = text_field_tag :name, '', class: 'form-control', placeholder: 'e-mail'
-          .form-group
-            = text_field_tag :phone, '', class: 'form-control', placeholder: 'teléfono'
-          .form-group
-            = text_area_tag :comment, '', class: 'form-control', placeholder: 'mensaje'
-          button type="submit" class="btn btn-primary" ENVIAR
