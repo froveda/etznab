@@ -288,9 +288,6 @@ section
   @include parallax-background
   padding: 40px 0
 
-#promos
-
-
 #contact
   background-image: url(asset_path("contact.png"))
   background-position: top center
@@ -301,7 +298,7 @@ section
 
   p
     font-size: 26px
-    margin-bottom: 50px
+    margin-bottom: 30px
     font-weight: 300
 
   a, a:hover
@@ -309,7 +306,12 @@ section
     text-decoration: none
 
   .whatsapp-button:first-child
-    margin-right: 40px
+    margin-right: 0
+    margin-bottom: 25px
+
+    @media (min-width: 768px)
+      margin-right: 40px
+      margin-bottom: 0
 
   .whatsapp-button
     padding: 10px 40px
@@ -322,12 +324,37 @@ section
     -ms-transition: background-color 200ms linear
     transition: background-color 200ms linear
 
+    @media (max-width: 767px)
+      display: block
+
   .whatsapp-button:hover
     background: rgba(255, 255, 255, 0.3)
 
   .whatsapp-buttons-container
-    width: 294px
-    margin: 45px auto
+    margin: 25px auto
+
+    @media (min-width: 768px)
+      margin: 45px auto
+
+  .call-now
+    margin-right: 0 !important
+
+  .send-email:hover
+    text-decoration: underline
+
+  .send-email:after
+    font-family: FontAwesome
+    margin-left: 13px
+
+  .send-email:after
+    content: "\f0e0"
+
+  .send-email-text
+    margin-top: 25px
+
+    @media (min-width: 768px)
+      margin-top: 40px
+      margin-bottom: 20px
 
 #location
   h3

@@ -79,21 +79,18 @@ section#contact
       .col-xs-12.text-center.wow.animated.fadeInUp
         h2.section-title Contactanos
       .col-xs-12.text-center.wow.animated.fadeInUp
-        p Contactate con nosotros por email o por teléfono:
-        p style='margin-bottom: 10px;'
-          i.fa.fa-volume-control-phone &nbsp;&nbsp;
-          | 011 4832-8883
-        p
-          i.fa.fa-envelope &nbsp;&nbsp;
-          = link_to 'etznabpeluqueria@gmail.com', 'mailto: etznabpeluqueria@gmail.com'
-
-      .col-xs-12.col-sm-8.col-sm-offset-2.text-center.wow.animated.fadeInUp
         p style='margin-bottom: 20px;' Para sacar turno, contactanos por WhatsApp!
 
-      .col-xs-12.col-sm-8.col-sm-offset-2
         .whatsapp-buttons-container
-          = link_to 'Fabri', 'https://api.whatsapp.com/send?phone=541169563666', target: '_blank', class: 'whatsapp-button'
-          = link_to 'Sebas', 'https://api.whatsapp.com/send?phone=541139078506', target: '_blank', class: 'whatsapp-button'
+          = link_to 'Fabri (011) 6956-3666', 'https://api.whatsapp.com/send?phone=541169563666', target: '_blank', class: 'whatsapp-button'
+          = link_to 'Sebas (011) 3907-8506', 'https://api.whatsapp.com/send?phone=541139078506', target: '_blank', class: 'whatsapp-button'
+      .col-xs-12.text-center.wow.animated.fadeInUp
+        a.whatsapp-button.call-now href='tel:+541148328883' Llamanos (011) 4832-8883
+
+      .col-xs-12.text-center.wow.animated.fadeInUp
+        p.send-email-text O envianos un email:
+        p
+          a.send-email href='mailto: etznabpeluqueria@gmail.com' etznabpeluqueria@gmail.com
 
 section#location
   .container
