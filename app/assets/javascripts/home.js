@@ -10,27 +10,30 @@ $(document).ready(function(){
     dots: false
   });
 
-  $('.promos').owlCarousel({
-    animateOut: 'fadeOut',
-    animateIn: 'fadeIn',
-    margin: 30,
-    responsiveClass:true,
-    nav: false,
-    dots: false,
-    autoplay: true,
-    loop: true,
-    responsive:{
-      0:{
-        items:1
-      },
-      480:{
-        items:2
-      },
-      992:{
-        items:3
+  var promoCount = $('.promos.owl').data('promos-count');
+  if(promoCount > 0) {
+    $('.promos').owlCarousel({
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      margin: 30,
+      responsiveClass:true,
+      nav: false,
+      dots: false,
+      autoplay: true,
+      loop: true,
+      responsive:{
+        0:{
+          items: 1
+        },
+        480:{
+          items: (promoCount < 2 ? promoCount : 2)
+        },
+        992:{
+          items: (promoCount < 3 ? promoCount : 3)
+        }
       }
-    }
-  });
+    });
+  }
 
   $('.intro-owl').owlCarousel({
     responsive: {

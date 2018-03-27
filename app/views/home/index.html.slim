@@ -49,29 +49,15 @@ section#socials
     .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
       h2.section-title Promos!
 
-  .container
-    .row
-      .col-xs-12
-        .promos.owl
-          - wow_delay = 0
-          - @promos.each do |promo|
-            = image_tag promo.image.url, alt: promo.name, class: 'wow flipInX', "data-wow-delay" => "#{wow_delay}s"
-            - wow_delay += 0.2
-    .row
-      .col-xs-12
-        p.hashtag-text.text-center style='margin-top: 50px;margin-bottom: 30px;font-size: 20px;'
-          | ¡Subi tu foto con hashtag #etznabpeluqueria y #etznabbarberia!
-    .row
-      .col-xs-12
-        .intro-owl.wow.animated.fadeInUp
-          - @instagram_images.in_groups_of(2) do |instagram_image_group|
-            .item
-              = render 'home/instagram_element', instagram_element: instagram_image_group.first
-              = render 'home/instagram_element', instagram_element: instagram_image_group.last
-
-#promos
-  .container
-
+  - if @promos.any?
+    .container
+      .row
+        .col-xs-12
+          .promos.owl data-promos-count=@promos.count
+            - wow_delay = 0
+            - @promos.each do |promo|
+              = image_tag promo.image.url, alt: promo.name, class: 'wow flipInX', "data-wow-delay" => "#{wow_delay}s"
+              - wow_delay += 0.2
 
 section#contact
   .container
