@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# Ruby Version
+ruby '2.7.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use mongoDB as the database
@@ -26,7 +29,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 # Rails Admin gem and dependencies
-gem 'rails_admin', '~> 1.0', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'rails_admin', '~> 1.0'
 gem 'rails_admin-i18n'
 gem 'rails_admin_toggleable' # Make any boolean field easily toggleable on\off from index view in rails admin
 
