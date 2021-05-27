@@ -1,15 +1,15 @@
 require'rails_helper'
 
 describe Promo do
-  it "has a valid factory" do
-    expect(build(:promo)).to be_valid
-  end
+  subject(:promo) { build(:promo) }
+
+  it { is_expected.to be_valid }
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:position) }
     it { is_expected.to validate_presence_of(:image) }
-    it { is_expected.to validate_numericality_of(:position).greater_than(0) }
+    it { is_expected.to validate_numericality_of(:position).is_greater_than(0).only_integer }
   end
 
   describe "without a name" do

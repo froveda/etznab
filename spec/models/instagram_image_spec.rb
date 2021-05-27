@@ -1,9 +1,9 @@
 require'rails_helper'
 
 describe InstagramImage do
-  it "has a valid factory" do
-    expect(build(:instagram_image)).to be_valid
-  end
+  subject(:instagram_image) { build(:instagram_image) }
+
+  it { is_expected.to be_valid }
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:instagram_id) }
@@ -11,7 +11,11 @@ describe InstagramImage do
     it { is_expected.to validate_presence_of(:thumbnail_src) }
     it { is_expected.to validate_uniqueness_of(:instagram_id).scoped_to(:code) }
     it { is_expected.to validate_numericality_of(:instagram_id) }
-    it { is_expected.to validate_format_of(:thumbnail_src).with_format(URI::regexp(%w(http https))) }
+
+    context "when checking thumbnail_src format" do
+      it { is_expected.to allow_values('https://foo.com', 'http://bar.com').for(:thumbnail_src) }
+      it { is_expected.to_not allow_values('https:/foo.com', 'http:/bar.com', 'httpbar.com').for(:thumbnail_src) }
+    end
   end
 
   describe "is invalid without an instagram_id" do
@@ -30,8 +34,9 @@ describe InstagramImage do
   end
 
   it "is invalid with a repeated combination of instagram_id and code" do
-    create(:instagram_image, instagram_id: 1447456397511020920, code: 'instagramcode')
-    invalid_instagram_image = build(:instagram_image, instagram_id: 1447456397511020920, code: 'instagramcode')
+    instagram_id = Faker::Number.number(6)
+    create(:instagram_image, instagram_id: instagram_id, code: 'instagramcode')
+    invalid_instagram_image = build(:instagram_image, instagram_id: instagram_id, code: 'instagramcode')
     expect(invalid_instagram_image).to_not be_valid
     expect(invalid_instagram_image.errors[:instagram_id]).to include("ya está en uso")
   end

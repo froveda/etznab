@@ -1,14 +1,14 @@
 require'rails_helper'
 
 describe MainHeaderImage do
-  it "has a valid factory" do
-    expect(build(:main_header_image)).to be_valid
-  end
+  subject(:main_header_image) { build(:main_header_image) }
+
+  it { is_expected.to be_valid }
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:position) }
     it { is_expected.to validate_presence_of(:image) }
-    it { is_expected.to validate_numericality_of(:position).greater_than(0) }
+    it { is_expected.to validate_numericality_of(:position).is_greater_than(0).only_integer }
   end
 
   describe "without a position" do

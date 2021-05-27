@@ -1,15 +1,9 @@
-class Promo
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class Promo < ActiveRecord::Base
+  include PromoConcern
 
   default_scope { order(position: :asc) }
 
-  include PromoConcern
-
-  field :name, type: String
-  field :position, type: Integer
-  mount_uploader :image, ImageUploader
-
-  validates_presence_of :name, :position, :image
-  validates_numericality_of :position, greater_than: 0, only_integer: true
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :position, presence: true, numericality: { greater_than: 0, only_integer: true }
 end

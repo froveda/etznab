@@ -5,10 +5,8 @@ ruby '2.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
-# Use mongoDB as the database
-gem 'bson'
-gem 'mongoid'
-gem 'kaminari-mongoid'
+# Use postgres as the database
+gem 'pg', '~> 0.20.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -45,12 +43,11 @@ gem 'devise-bootstrap-views'
 
 # Carrierwave
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
-gem 'carrierwave-mongoid', require: 'carrierwave/mongoid'
 gem 'mini_magick'
 gem 'cloudinary'
 
 gem 'mechanize'
-gem 'delayed_job_mongoid'
+gem 'delayed_job'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -59,18 +56,18 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem "rspec-rails"
-  gem "factory_girl_rails"
 end
 
 group :development, :test do
   gem "faker"
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 group :test do
   gem "capybara"
-  gem "database_cleaner"
+  gem 'database_cleaner-active_record'
   gem "launchy"
   gem "selenium-webdriver"
-  gem 'mongoid-rspec'
+  gem 'shoulda-matchers'
 end

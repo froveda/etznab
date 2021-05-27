@@ -1,9 +1,9 @@
 es:
-  mongoid:
+  activerecord:
     models:
-      card_type:
-        one: Tipo de Tarjeta
-        other: Tipos de Tarjeta
+      provider:
+        one: Provedor
+        other: Provedores
       admin:
         one: Administrador
         other: Administradores
@@ -20,8 +20,8 @@ es:
       ticket:
         name: Nombre y Apellido
         date: Fecha
-        card: Tarjeta
         card_type: Tipo de Tarjeta
+        provider: Proveedor
         amount: Importe
         payment_count: Cuotas
         payment_batch: Lote
@@ -44,8 +44,7 @@ es:
         validations:
           message: "Falló la validación de %{document}."
           summary: "Los siguiente errores fueron encontrados: %{errors}"
-          resolution: "Intente guardar el documento con datos válidos o
-            quitar las validaciones"
+          resolution: "Intente guardar el documento con datos válidos o quitar las validaciones"
 
   admin:
     export:

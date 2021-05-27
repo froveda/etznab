@@ -1,31 +1,16 @@
-class InstagramImage
-  include Mongoid::Document
-  include Mongoid::Timestamps
+require 'uri'
+
+class InstagramImage < ActiveRecord::Base
+  include InstagramImageConcern
 
   default_scope { order(post_date: :desc) }
 
-  include InstagramImageConcern
-
-  field :instagram_id, type: Integer
-  field :code, type: String
-  field :thumbnail_src, type: String
-  field :display_src, type: String
-  field :display_src_image, type: String
-  field :thumbnail_src_image, type: String
-  field :post_date, type: DateTime
-  field :show, type: Boolean, default: true
-  field :video_url, type: String
-  field :is_video, type: Boolean, default: false
-
-  index({ instagram_id: 1, code: 1 }, { unique: true })
+  validates :instagram_id, presence: true, uniqueness: { scope: :code }, numericality: true
+  validates :code, presence: true
+  validates :thumbnail_src, presence: true, url: true
 
   scope :show_enabled, -> { where(show: true) }
 
-  validates_presence_of :instagram_id, :code, :thumbnail_src
-  validates_uniqueness_of :instagram_id, scope: :code
-  validates_numericality_of :instagram_id
-  validates_format_of :thumbnail_src, with: URI::regexp(%w(http https)), message: "debe ser una URL válida"
-  
   def video_url_insecure
     video_url.gsub(/https/, 'http')
   end

@@ -1,25 +1,13 @@
-class Ticket
-  CARD_TYPES = %w(Amex Cabal MasterCard Naranja Visa)
-
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class Ticket < ActiveRecord::Base
+  CARD_TYPES = %w(debit credit)
+  CARD_PROVIDERS = %w(Amex Cabal MasterCard Naranja Visa)
 
   include TicketConcern
 
-  field :name, type: String
-  field :date, type: DateTime
-  field :card, type: String
-  field :card_type, type: String
-  field :amount, type: Float
-  field :payment_count, type: Integer
-  field :payment_batch, type: String
-  field :payment_coupon, type: String
-  field :receipt_number, type: Integer
-  field :credit_card_last_digits, type: Integer
-
-  validates_presence_of :name, :date, :card, :card_type, :amount, :receipt_number
-
-  validates :card, inclusion: { in: %w(debit credit) }
-  validates :card_type, inclusion: { in: CARD_TYPES }
-  validates :receipt_number, uniqueness: true, numericality: { greater_than: 0, only_integer: true }
+  validates :name, presence: true
+  validates :date, presence: true
+  validates :card_type, presence: true, inclusion: { in: CARD_TYPES }
+  validates :provider, presence: true, inclusion: { in: CARD_PROVIDERS }
+  validates :amount, presence: true
+  validates :receipt_number, presence: true, uniqueness: true, numericality: { greater_than: 0, only_integer: true }
 end

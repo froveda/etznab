@@ -3,12 +3,12 @@ module TicketConcern
 
   included do
     # Rails admin helper methods
-    def card_enum
+    def card_type_enum
       [['Débito', 'debit'],['Crédito', 'credit']]
     end
 
-    def card_type_enum
-      Ticket::CARD_TYPES
+    def provider_enum
+      Ticket::CARD_PROVIDERS
     end
 
     rails_admin do
@@ -18,8 +18,8 @@ module TicketConcern
         field :receipt_number
         field :name
         field :date
-        field :card
         field :card_type
+        field :provider
         field :amount
         sort_by :receipt_number
         items_per_page 20
@@ -29,8 +29,8 @@ module TicketConcern
         field :receipt_number
         field :name
         field :date
-        field :card
         field :card_type
+        field :provider
         field :amount
         field :payment_count
         field :payment_batch
@@ -42,8 +42,8 @@ module TicketConcern
         field :receipt_number
         field :name
         field :date
-        field :card
         field :card_type
+        field :provider
         field :amount
         field :payment_count
         field :payment_batch

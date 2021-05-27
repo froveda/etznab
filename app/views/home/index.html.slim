@@ -24,33 +24,33 @@ section#intro
         p.intro-text Tomate un momento para verte como realmente sos, encontrá tu estilo y refleja en tu apariencia tu esencia.
         p.intro-text Vení a ETZNAB PELUQUERÍA
 
-section#services
-  .container
-    .row
-      .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
-        h2.section-title Nuestros Servicios
-
-    .row
-      .services.grid
-        .grid-sizer.col-xs-12.col-sm-6.col-md-4
-        - wow_delay = 0
-        - @services.each do |service|
-          .col-xs-12.col-sm-6.col-md-4.grid-item
-            .service.wow.flipInX data-wow-delay="#{wow_delay}s"
-              .title.text-center
-                h4.black-text= service.name
-                .separator
-              .image alt=service.name style="background-image: url(#{service.image.url})"
-              .description.text-center.black-text= simple_format(service.description)
-          - wow_delay += 0.2
-
-section#socials
-  .row
-    .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
-      h2.section-title Promos!
-
-  - if @promos.any?
+- if @services.any?
+  section#services
     .container
+      .row
+        .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
+          h2.section-title Nuestros Servicios
+
+      .row
+        .services.grid
+          .grid-sizer.col-xs-12.col-sm-6.col-md-4
+          - wow_delay = 0
+          - @services.each do |service|
+            .col-xs-12.col-sm-6.col-md-4.grid-item
+              .service.wow.flipInX data-wow-delay="#{wow_delay}s"
+                .title.text-center
+                  h4.black-text= service.name
+                  .separator
+                .image alt=service.name style="background-image: url(#{service.image.url})"
+                .description.text-center.black-text= simple_format(service.description)
+            - wow_delay += 0.2
+
+- if @promos.any?
+  section#socials
+    .container
+      .row
+        .col-xs-12.text-center.section-intro.wow.animated.fadeInUp
+          h2.section-title Promos!
       .row
         .col-xs-12
           .promos.owl data-promos-count=@promos.count
@@ -60,20 +60,27 @@ section#socials
               - wow_delay += 0.2
 
 section#contact
-  .container
+  .container.wow.animated.fadeInUp
+    .row.social-networks
+      .col-xs-12.text-center
+        h2.section-title Redes Sociales
+      .col-xs-12.text-center
+        = link_to 'Instagram: @etznab_peluqueria', 'https://www.instagram.com/etznab_peluqueria', target: '_blank', class: 'social-icon'
+      .col-xs-12.text-center
+        = link_to 'Facebook: Etznabpeluqueria', 'https://www.facebook.com/Etznabpeluqueria', target: '_blank', class: 'social-icon'
+
     .row
-      .col-xs-12.text-center.wow.animated.fadeInUp
+      .col-xs-12.text-center
         h2.section-title Contactanos
-      .col-xs-12.text-center.wow.animated.fadeInUp
+      .col-xs-12.text-center
         p style='margin-bottom: 20px;' Para sacar turno, contactanos por WhatsApp!
 
         .whatsapp-buttons-container
           = link_to 'Fabri (011) 6956-3666', 'https://api.whatsapp.com/send?phone=541169563666', target: '_blank', class: 'whatsapp-button'
-          = link_to 'Sebas (011) 3907-8506', 'https://api.whatsapp.com/send?phone=541139078506', target: '_blank', class: 'whatsapp-button'
-      .col-xs-12.text-center.wow.animated.fadeInUp
+      .col-xs-12.text-center
         a.whatsapp-button.call-now href='tel:+541148328883' Llamanos (011) 4832-8883
 
-      .col-xs-12.text-center.wow.animated.fadeInUp
+      .col-xs-12.text-center
         p.send-email-text O envianos un email:
         p
           a.send-email href='mailto: etznabpeluqueria@gmail.com' etznabpeluqueria@gmail.com

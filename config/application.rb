@@ -1,6 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
-require "rails"
+require "rails/all"
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_job/railtie"
@@ -39,5 +39,7 @@ module Etznab
                        request_specs: false
       g.fixture_replacement :factory_girl, dir: "spec/factories"
     end
+
+    ActiveSupport::Deprecation.silenced = true
   end
 end

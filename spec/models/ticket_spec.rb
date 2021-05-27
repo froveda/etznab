@@ -1,36 +1,35 @@
 require'rails_helper'
 
 describe Ticket do
-  it "has a valid factory" do
-    expect(build(:ticket)).to be_valid
-  end
+  subject(:ticket) { build(:ticket) }
+
+  it { is_expected.to be_valid }
 
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_presence_of(:card) }
     it { is_expected.to validate_presence_of(:card_type) }
+    it { is_expected.to validate_presence_of(:provider) }
     it { is_expected.to validate_presence_of(:amount) }
     it { is_expected.to validate_presence_of(:receipt_number) }
     it { is_expected.to validate_uniqueness_of(:receipt_number) }
-    it { is_expected.to validate_numericality_of(:receipt_number).greater_than(0) }
-    it { is_expected.to validate_inclusion_of(:card).to_allow(%w(debit credit)) }
-    it { is_expected.to validate_inclusion_of(:card_type).to_allow(Ticket::CARD_TYPES) }
+    it { is_expected.to validate_numericality_of(:receipt_number).is_greater_than(0).only_integer }
+    it { is_expected.to validate_inclusion_of(:card_type).in_array(Ticket::CARD_TYPES) }
+    it { is_expected.to validate_inclusion_of(:provider).in_array(Ticket::CARD_PROVIDERS) }
   end
-
 
   describe "without a name" do
     let(:object) { build(:ticket, name: nil) }
     it_behaves_like "validating presence", :name
   end
 
-  describe "without a card" do
-    let(:object) { build(:ticket, card: nil) }
-    it_behaves_like "validating presence", :card
-  end
-
   describe "without a card_type" do
     let(:object) { build(:ticket, card_type: nil) }
     it_behaves_like "validating presence", :card_type
+  end
+
+  describe "without a provider" do
+    let(:object) { build(:ticket, provider: nil) }
+    it_behaves_like "validating presence", :provider
   end
 
   describe "without a amount" do
@@ -53,14 +52,14 @@ describe Ticket do
     it_behaves_like "validating that is a number", :receipt_number
   end
 
-  describe "with an invalid card" do
-    let(:object) { build(:ticket, card: 'test') }
-    it_behaves_like "validating that it is included in the list of values", :card
-  end
-
   describe "with an invalid card_type" do
     let(:object) { build(:ticket, card_type: 'test') }
     it_behaves_like "validating that it is included in the list of values", :card_type
+  end
+
+  describe "with an invalid provider" do
+    let(:object) { build(:ticket, provider: 'test') }
+    it_behaves_like "validating that it is included in the list of values", :provider
   end
 
   it "it has unique receipt_number" do
