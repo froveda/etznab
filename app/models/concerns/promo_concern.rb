@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Rails Admin concerns for Promos
 module PromoConcern
   extend ActiveSupport::Concern
 

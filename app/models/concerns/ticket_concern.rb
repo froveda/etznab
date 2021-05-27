@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
+# Rails Admin concerns for Tickets
 module TicketConcern
   extend ActiveSupport::Concern
 
   included do
     # Rails admin helper methods
     def card_type_enum
-      [['Débito', 'debit'],['Crédito', 'credit']]
+      [%w[Débito debit], %w[Crédito credit]]
     end
 
     def provider_enum

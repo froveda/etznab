@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Services table create migration
 class CreateTickets < ActiveRecord::Migration[5.0]
   def change
     create_table :tickets do |t|

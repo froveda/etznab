@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Images for home Headers
 class MainHeaderImage < ActiveRecord::Base
   include MainHeaderImageConcern
 

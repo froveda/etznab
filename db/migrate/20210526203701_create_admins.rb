@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Admins table create migration
 class CreateAdmins < ActiveRecord::Migration[5.0]
   def change
     create_table :admins do |t|

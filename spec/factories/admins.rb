@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :admin do
-    email                   { Faker::Internet.email }
+    email { Faker::Internet.email }
   end
 
   factory :admin_with_password, parent: :admin do

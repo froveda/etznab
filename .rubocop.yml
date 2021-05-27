@@ -1,0 +1,18 @@
+AllCops:
+  NewCops: enable
+
+Metrics/AbcSize:
+  Exclude:
+    - lib/tasks/instagram_feed.rake
+
+Metrics/BlockLength:
+  Exclude:
+    - app/models/concerns/**/*
+    - db/schema.rb
+    - lib/tasks/instagram_feed.rake
+    - spec/models/**/*
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/**/*
+    - lib/tasks/instagram_feed.rake

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Home services
 class Service < ActiveRecord::Base
   include ServiceConcern
 

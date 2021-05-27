@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Instagram Images table create migration
 class CreateInstagramImage < ActiveRecord::Migration[5.0]
   def change
     create_table :instagram_images do |t|
@@ -13,6 +16,6 @@ class CreateInstagramImage < ActiveRecord::Migration[5.0]
       t.boolean     :is_video
     end
 
-    add_index :instagram_images, [:instagram_id, :code], unique: true
+    add_index :instagram_images, %i[instagram_id code], unique: true
   end
 end

@@ -1,5 +1,9 @@
-class UrlValidator < ActiveModel::EachValidator
+# frozen_string_literal: true
 
+require 'uri'
+
+# Validator for urls
+class UrlValidator < ActiveModel::EachValidator
   def self.compliant?(value)
     uri = URI.parse(value)
     uri.is_a?(URI::HTTP) && !uri.host.nil?
@@ -8,8 +12,6 @@ class UrlValidator < ActiveModel::EachValidator
   end
 
   def validate_each(record, attribute, value)
-    unless value.present? && self.class.compliant?(value)
-      record.errors.add(attribute, "debe ser una URL válida")
-    end
+    record.errors.add(attribute, 'debe ser una URL válida') unless value.present? && self.class.compliant?(value)
   end
 end

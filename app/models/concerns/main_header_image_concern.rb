@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Rails Admin concerns for Main Header Images
 module MainHeaderImageConcern
   extend ActiveSupport::Concern
 

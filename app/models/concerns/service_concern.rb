@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Rails Admin concerns for Services
 module ServiceConcern
   extend ActiveSupport::Concern
 

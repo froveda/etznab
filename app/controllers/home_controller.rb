@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Controller for home page
 class HomeController < ApplicationController
   def index
     @main_header_images = MainHeaderImage.all

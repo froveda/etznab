@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :instagram_image do
     instagram_id { Faker::Number.number(6) }

@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Home promos
 class Promo < ActiveRecord::Base
   include PromoConcern
 

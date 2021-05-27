@@ -1,5 +1,6 @@
-require 'uri'
+# frozen_string_literal: true
 
+# Instagram images grabbed from @etznab_peluqueria
 class InstagramImage < ActiveRecord::Base
   include InstagramImageConcern
 

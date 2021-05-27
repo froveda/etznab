@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 # Ruby Version
@@ -31,7 +33,7 @@ gem 'rails_admin', '~> 1.0'
 gem 'rails_admin-i18n'
 gem 'rails_admin_toggleable' # Make any boolean field easily toggleable on\off from index view in rails admin
 
-#Slim
+# Slim
 gem 'slim-rails'
 
 # New Relic
@@ -43,25 +45,25 @@ gem 'devise-bootstrap-views'
 
 # Carrierwave
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
-gem 'mini_magick'
 gem 'cloudinary'
+gem 'mini_magick'
 
-gem 'mechanize'
 gem 'delayed_job'
+gem 'mechanize'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
   gem 'listen', '~> 3.0.5'
+  gem 'web-console'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
 group :development, :test do
-  gem "faker"
-  gem "rspec-rails"
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-faker'
   gem 'rubocop-performance'
@@ -70,9 +72,9 @@ group :development, :test do
 end
 
 group :test do
-  gem "capybara"
+  gem 'capybara'
   gem 'database_cleaner-active_record'
-  gem "launchy"
-  gem "selenium-webdriver"
+  gem 'launchy'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end

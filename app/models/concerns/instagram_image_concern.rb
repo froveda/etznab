@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Rails Admin concerns for Instagram Images
 module InstagramImageConcern
   extend ActiveSupport::Concern
 

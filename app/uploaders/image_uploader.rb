@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require 'carrierwave/processing/mini_magick'
 
+# Uploader for images
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave if Rails.env.production?

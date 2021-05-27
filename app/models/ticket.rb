@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
+# Tickets to record sales
 class Ticket < ActiveRecord::Base
-  CARD_TYPES = %w(debit credit)
-  CARD_PROVIDERS = %w(Amex Cabal MasterCard Naranja Visa)
+  CARD_TYPES = %w[debit credit].freeze
+  CARD_PROVIDERS = %w[Amex Cabal MasterCard Naranja Visa].freeze
 
   include TicketConcern
 
