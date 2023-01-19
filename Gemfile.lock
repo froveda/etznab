@@ -76,7 +76,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.1.10)
     crass (1.0.6)
     database_cleaner-active_record (2.0.1)
       activerecord (>= 5.a)
@@ -107,8 +107,8 @@ GEM
     ffi (1.9.18)
     font-awesome-rails (4.7.0.7)
       railties (>= 3.2, < 7)
-    globalid (0.4.2)
-      activesupport (>= 4.2.0)
+    globalid (1.0.1)
+      activesupport (>= 5.0)
     haml (4.0.7)
       tilt
     http-cookie (1.0.3)
@@ -162,7 +162,7 @@ GEM
     mini_magick (4.6.1)
     mini_mime (1.1.0)
     mini_portile2 (2.5.1)
-    minitest (5.14.4)
+    minitest (5.17.0)
     multi_json (1.12.1)
     nested_form (0.3.2)
     net-http-digest_auth (1.4.1)
@@ -327,7 +327,7 @@ GEM
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
-    tzinfo (1.2.9)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uglifier (3.1.5)
       execjs (>= 0.3.0, < 3)
